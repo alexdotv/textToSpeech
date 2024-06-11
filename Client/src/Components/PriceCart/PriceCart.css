@@ -1,0 +1,46 @@
+.priceCart{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid rgb(247, 247, 247);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.plan-list{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 20px;
+    padding-top: 20px;
+}
+
+p{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+li{
+    font-size: 20px;
+}
+
+h2{
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.cost-for{
+    font-size: 14px;
+    color: #00000072;
+}
+
+button{
+    height: 40px;
+    width: 90%;
+    align-self: start;
+
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
