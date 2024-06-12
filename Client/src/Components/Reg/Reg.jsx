@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Reg.css';
 
 export default function Reg() {
@@ -18,32 +19,44 @@ export default function Reg() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, login, password });
+
+    try {
+      const response = await axios.post('http://localhost:3000/registration', {
+        email,
+        login,
+        password,
+      });
+
+      console.log('Данные успешно отправлены на сервер');
+      console.log('Токен:', response.data.token);
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
   };
 
   return (
     <form className="reg-form" onSubmit={handleSubmit}>
       <input
-        placeholder='Email'
+        placeholder="Email"
         type="email"
         value={email}
         onChange={handleEmailChange}
       />
       <input
-        placeholder='Login'
+        placeholder="Login"
         type="text"
         value={login}
         onChange={handleLoginChange}
       />
       <input
-        placeholder='Password'
+        placeholder="Password"
         type="password"
         value={password}
         onChange={handlePasswordChange}
       />
-      <button type='submit'>Registration</button>
+      <button type="submit">Регистрация</button>
     </form>
   );
 }

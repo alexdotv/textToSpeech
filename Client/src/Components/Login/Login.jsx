@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../../Context/AuthContext';
 import './Login.css';
 
-export default function Reg() {
+export default function Login() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const { login: authLogin } = useContext(AuthContext);
 
   const handleLoginChange = (e) => {
     setLogin(e.target.value);
@@ -18,12 +20,14 @@ export default function Reg() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/submit', {
+      const response = await axios.post('http://localhost:3000/login', {
         login,
         password,
       });
 
-      console.log('Данные успешно отправлены на сервер');
+      console.log('Успешный вход:', response.data);
+      localStorage.setItem('token', response.data.token);
+      authLogin();
     } catch (error) {
       console.error('Ошибка:', error);
     }

@@ -4,9 +4,15 @@
     justify-content: center;
     flex-direction: column;
     row-gap: 1rem;
+    margin-top: 10rem;
 }
 
 
 .underline{
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.underline:hover{
+    color: #b0b0b0;
 }
