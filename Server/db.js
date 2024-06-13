@@ -1,5 +1,4 @@
-
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
 
 const sequelize = new Sequelize('text2speech', 'root', '', {
   host: 'localhost',
@@ -21,10 +20,33 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING(255),
     allowNull: false,
   },
+  tokens: {
+    type: DataTypes.INTEGER(11),
+    allowNull: false,
+  },
 }, {
   timestamps: true 
 });
 
-sequelize.sync(); 
+class History extends Model {}
+History.init(
+  {
+    text: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    voice: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    modelName: 'History',
+  }
+);
 
-module.exports = { User, sequelize };
+User.hasMany(History);
+History.belongsTo(User);
+
+module.exports = { User, History, sequelize };

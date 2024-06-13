@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text2speech{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+
+textarea{
+    min-height: 400px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+select{
+    border-radius: 4px;
+}
+
+select:focus{
+    outline: none;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    column-gap: 0.5rem;
+}
+
+audio{
+    width: 100%;
+    background-color:  #f1f3f4;
+    border-radius: 4px;
+}
+
+.history{
+    display: flex;
+    flex-direction: column;
+}
+
+.history ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.history ul li{
+    list-style-type: none;
+    font-size: 16px;
+    margin-top: 14px;
+}
+
+.history h2{
+    color: #ffffff;
+}
+
+.token-count{
+    color: #f1f3f4;
+}

@@ -8,14 +8,12 @@ export default function Header() {
   const { isAuthenticated, logout } = useContext(AuthContext);
   return (
     <nav className="nav">
-      <ul>
-        <li><Link className='link' to="/">About</Link></li>
-        <li><Link className='link' to="/TextToSpeech">Tetx to Speech</Link></li>
-        <li><Link className='link' to="/Price">Price</Link></li>
+      <ul className='nav-list'>
+        <li><Link className='link' to="/">Tetx to Speech</Link></li>
         {isAuthenticated ? (
-        <button onClick={logout}>Logout</button>
+        <li className='nav-auth' onClick={logout}>Logout</li>
          ) : (
-        <li><Link className='link login' to="/Auth">Login</Link></li>
+        <li><Link className='link nav-auth' to="/Auth">Login</Link></li>
         )}
       </ul>
     </nav>

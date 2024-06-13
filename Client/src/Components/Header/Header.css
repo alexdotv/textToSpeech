@@ -4,7 +4,7 @@
     margin: 30px 0px;
 }
 
-ul{
+.nav-list{
     display: flex;
     align-items: center;
     justify-content: right;
@@ -14,14 +14,15 @@ ul{
 }
 
 
-a{
+.nav-list .link, li, a{
     text-decoration: none;
     font-size: 20px;
     color: #ffffff;
 }
 
-.login{
+.nav-auth{
     border: 1px solid rgb(180, 180, 180);
     border-radius: 8px;
     padding: 4px;
+    box-sizing: border-box;
 }

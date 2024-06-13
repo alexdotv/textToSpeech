@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Login from '../../Components/Login/Login';
-import Reg from '../../Components/Reg/Reg';
+import Login from '../../Components/Auth/Login/Login';
+import Reg from '../../Components/Auth/Reg/Reg';
 import './Auth.css';
 
 export default function Auth() {
@@ -14,8 +14,8 @@ export default function Auth() {
     <div className="auth">
       {isLoginForm ? <Login /> : <Reg />}
       <a onClick={toggleForm}>
-        {isLoginForm ? 'Еще нет аккаунта?' : 'Уже есть аккаунт? '}
-        {isLoginForm ? <span className='underline'>Зарегистрироваться</span> : <span className='underline'>Войти</span>}
+        {isLoginForm ? "You don't have an account yet?" : 'Already have an account? '}
+        {isLoginForm ? <span className='underline'>Sign up</span> : <span className='underline'>Sign in</span>}
       </a>
     </div>
   );
